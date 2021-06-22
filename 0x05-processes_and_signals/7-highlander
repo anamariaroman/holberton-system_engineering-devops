@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#that kills the process 7, instead of the 4 process
+for (( ; ; ))
+do
+	echo "To infinity and beyond"
+	trap "echo I am invincible!!!" SIGTERM
+	sleep 2
+done
