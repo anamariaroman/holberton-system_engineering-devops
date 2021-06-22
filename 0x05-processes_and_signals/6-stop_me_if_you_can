@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Stop and kill the exercise 4
+PID=$(pgrep -f 4-to_infinity_and_beyond)
+sudo pkill "$PID"
