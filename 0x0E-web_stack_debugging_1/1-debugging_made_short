@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Again the web server running on port 80.
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-#reload
+#actual process reload
 pkill -HUP nginx
