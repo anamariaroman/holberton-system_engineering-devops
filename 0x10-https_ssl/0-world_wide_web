@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Add subdomains to my domain and print subdomain information: [hostname[domain/zone]]
+#Domain=$1
+#SubDomain=$2
+
+to_record () {
+    dig +nocmd "${1}" +noall +answer | awk '{ print $4 }'
+}
+
+to_ip () {
+    dig "${1}" +short
+}
+
+# Information subdomains display.
+result_record="$(to_record "${1}")"
+if [ $# -eq 1 ]; then
+    echo "The subdomain www is a $result_record record and points to $(to_ip www."${1}")"
+    echo "The subdomain lb-01 is a $result_record record and points to $(to_ip lb-01."${1}")"
+    echo "The subdomain web-01 is a $result_record record and points to $(to_ip web-01."${1}")"
+    echo "The subdomain web-02 is a $result_record record and points to $(to_ip web-02."${1}")"
+else
+    result_destination="$(to_ip "${2}"."${1}")"
+    echo "The subdomain ${2} is a $result_record record and points to $result_destination"
+# Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+fi
