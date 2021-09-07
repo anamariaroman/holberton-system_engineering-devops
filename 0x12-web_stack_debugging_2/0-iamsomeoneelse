@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Run whoami command as and sudo for anotheruser
+sudo -u "${1}" whoami
