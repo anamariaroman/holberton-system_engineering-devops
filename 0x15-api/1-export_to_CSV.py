@@ -11,7 +11,7 @@ if __name__ == '__main__':
     """ Function that writes and exports all data in the csv format """
     user_ID = sys.argv[1]
     employee = requests.get('https://jsonplaceholder.typicode.com/users/' +
-                         user_ID).json()
+                            user_ID).json()
     employee_name = employee.get('username')
 
     todo = requests.get(
@@ -21,4 +21,5 @@ if __name__ == '__main__':
         tasks_writer = csv.writer(cvs_file, quoting=csv.QUOTE_ALL)
         for task in todo:
             tasks_writer.writerow([user_ID, employee_name,
-                                 task.get('completed'), task.get('title')])
+                                   task.get('completed'),
+                                   task.get('title')])
