@@ -13,8 +13,8 @@ def top_ten(subreddit):
             subreddit), allow_redirects=False)
     if respn.status_code == 200:
         respn_data_json = respn.json()
-        for key in respn_data_json['data']['children']:
-            if 'data' in key:
-                print(key['data']['title'])
+        for key_title in respn_data_json['data']['children']:
+            if 'data' in key_title:
+                print(key_title['data']['title'])
     else:
         print(None)
