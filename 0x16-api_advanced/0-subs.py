@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Reddit API. """
 
+
 import requests
 
 
@@ -12,6 +13,6 @@ def number_of_subscribers(subreddit):
         'https://www.reddit.com/r/{}/about.json'.format(
             subreddit), allow_redirects=False)
     if respn.status_code == 200:
-        respm_data_json = respn.json()
+        respn_data_json = respn.json()
         return respn_data_json['data']['subscribers']
     return(0)
